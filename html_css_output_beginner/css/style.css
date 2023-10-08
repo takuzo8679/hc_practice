@@ -1,0 +1,99 @@
+/* スマホ＆共通設定 */
+
+.container {
+    max-width: 960px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 4%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+header {
+    /* Flex boxの指定 */
+    display: flex;
+    /* コンテンツを左右均等に配置 */
+    justify-content: space-between;
+    margin: 5px 0;
+}
+header .resume {
+    padding: 5px 15px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+header .headers ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+header .headers ul li {
+    padding: 10px 7px;
+}
+
+.top-image {
+    height: 600px;
+    width: 100%;
+    /* width: 100vm; */
+    /* アスペクト比を維持したまま画像幅に合わせる */
+    object-fit: cover;
+    /* 横幅のマージンを無くす */
+    /* margin: 0 -4%; */
+    /* margin: 0; */
+    margin-bottom: 80px;
+}
+
+.self-produce {
+    margin-bottom: 100px;
+}
+
+section h1 {
+    font-size: 2em;
+    /* 下線対応 */
+    border-bottom: 1px solid #000;
+    /* 横幅を文字列に合わせる */
+    width: fit-content;
+    /* 中央に寄せつつ、下のマージンを設定 */
+    margin: 0 auto 30px auto;
+    /* 下線位置を少し下げる */
+    padding-bottom: 2px;
+
+    margin-bottom: 60px;
+}
+.title {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.produce-text {
+    font-weight: lighter;
+    font-size: 1.1em;
+    line-height: 1.3em;
+    /* スマホは左よせ */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.self-produce-img {
+    border-radius: 50%;
+    width: 25%;
+}
+
+.profiles {
+    margin-bottom: 60px;
+}
+
+.profiles .profile {
+    margin-bottom: 20px;
+}
+.profiles .profile .profile-img {
+    width: 100%;
+}
+.profiles .profile .profile-text {
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 0.5em;
+    margin-bottom: 10px;
+}
