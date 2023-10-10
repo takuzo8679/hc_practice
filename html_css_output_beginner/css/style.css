@@ -31,8 +31,12 @@ header .headers ul {
 header .headers ul li {
     padding: 10px 7px;
 }
-header a{
+header a {
     text-decoration: none;
+}
+header a:link,
+header a:visited {
+    color: #000;
 }
 .top-image {
     /* ウィンドウ幅に広げる */
