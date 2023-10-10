@@ -51,7 +51,6 @@ header .headers ul li {
 .self-produce {
     margin-bottom: 100px;
 }
-
 section h1 {
     font-size: 2em;
     /* 下線対応 */
@@ -77,16 +76,13 @@ section h1 {
     text-align: left;
     margin-bottom: 10px;
 }
-
 .self-produce-img {
     border-radius: 50%;
     width: 25%;
 }
-
 .profiles {
     margin-bottom: 60px;
 }
-
 .profiles .profile {
     margin-bottom: 20px;
 }
@@ -96,8 +92,32 @@ section h1 {
 .profiles .profile .profile-text {
     margin-bottom: 10px;
 }
-
 footer p {
     font-size: 0.5em;
     margin-bottom: 10px;
+}
+
+/* タブレット・PCサイズ設定 */
+@media screen and (min-width: 600px) {
+    .self-produce-contents {
+        display: flex;
+        justify-content: center;
+    }
+    .self-produce-contents-text .title {
+        text-align: left;
+    }
+    .self-produce-img {
+        width: 100px;
+        height: 100px;
+        margin-left: 20px;
+    }
+
+    .profile-items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0 20px;
+    }
+    .profile {
+        width: 100%;
+    }
 }
