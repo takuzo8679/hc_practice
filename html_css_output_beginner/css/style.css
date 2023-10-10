@@ -31,7 +31,9 @@ header .headers ul {
 header .headers ul li {
     padding: 10px 7px;
 }
-
+header a{
+    text-decoration: none;
+}
 .top-image {
     /* ウィンドウ幅に広げる */
     width: 100vw;
