@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-'ABCDEF' # メンバを定義
-  .chars # 配列化
-  .shuffle # シャッフル
-  .each_slice(rand(3..4)) # ランダムに分解=要素数3or4
-  .to_a # Enumarable型を配列に変換
-  .map(&:sort) # メンバをアルファベット順にソート
-  .sort_by(&:size) => [group_a, group_b ] # グループをサイズ小さい順にソートして代入
+# 全メンバー
+all_member = 'ABCDEF'.chars
 
-p group_a
-p group_b
+# グループA：ランダムに2or3人抽出 -> 名前順にソート
+p group_a = all_member
+            .sample(rand(2..3))
+            .sort
+
+# グループB：全メンバからAを除いたメンバ
+p all_member - group_a
