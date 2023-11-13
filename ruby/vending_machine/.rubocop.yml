@@ -1,0 +1,11 @@
+# 除外設定時に必要
+AllCops:
+  NewCops: enable
+
+#クラス宣言の上のコメントはコードが見にくくなるので除外
+Style/Documentation:
+  Enabled: false
+
+# attr_readerは禁止のため除外
+Style/TrivialAccessors:
+  Enabled: false
