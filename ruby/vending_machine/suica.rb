@@ -15,4 +15,9 @@ class Suica
 
     @balance += deposit
   end
+
+  def withdrawal(money)
+    @balance -= money
+  end
+
 end
