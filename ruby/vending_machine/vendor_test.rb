@@ -39,7 +39,7 @@ class VendorTest < Minitest::Test
     e = assert_raises(RuntimeError) do
       @vendor.buy(@suica, :pepsi)
     end
-    assert_equal 'チャージ残高か在庫が不足しています', e.message
+    assert_equal 'チャージ残高が不足しています', e.message
   end
 
   def test_buy_ng_stock_short
@@ -48,7 +48,7 @@ class VendorTest < Minitest::Test
     e = assert_raises(RuntimeError) do
       @vendor.buy(@suica, :pepsi)
     end
-    assert_equal 'チャージ残高か在庫が不足しています', e.message
+    assert_equal '在庫がありません', e.message
   end
 
   def test_available_juice

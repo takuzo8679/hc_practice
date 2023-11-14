@@ -27,14 +27,14 @@ class Vendor
   end
 
   def can_buy?(suica, name)
-    return false unless available_juice.include?(name)
-    return false if suica.balance < juice_info(name)[:price]
+    raise '在庫がありません' unless available_juice.include?(name)
+    raise 'チャージ残高が不足しています' if suica.balance < juice_info(name)[:price]
 
     true
   end
 
   def buy(suica, name)
-    raise 'チャージ残高か在庫が不足しています' unless can_buy?(suica, name)
+    can_buy?(suica, name)
 
     juice_index = @stock.index { |v| v.name == name }
     juice = @stock[juice_index]
