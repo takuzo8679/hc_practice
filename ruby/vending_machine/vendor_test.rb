@@ -19,7 +19,7 @@ class VendorTest < Minitest::Test
     # falseパターンはbuyで行う
   end
 
-  def test_buy_ok
+  def test_buy_success
     assert_equal 0, @vendor.sales
     @vendor.buy(@suica, :pepsi)
     assert_equal ({ pepsi: 4, monster: 5, irohasu: 5 }), arrange_stock(@vendor.stock)
@@ -30,7 +30,7 @@ class VendorTest < Minitest::Test
     assert_equal 500, @vendor.sales
   end
 
-  def test_buy_ng_deposit_short
+  def test_buy_fail_deposit_short
     @vendor.buy(@suica, :pepsi)
     @vendor.buy(@suica, :pepsi)
     @vendor.buy(@suica, :pepsi)
@@ -40,7 +40,7 @@ class VendorTest < Minitest::Test
     assert_equal 'チャージ残高が不足しています', e.message
   end
 
-  def test_buy_ng_stock_short
+  def test_buy_fail_stock_short
     @suica.charge(1000)
     5.times { @vendor.buy(@suica, :pepsi) }
     e = assert_raises(RuntimeError) do

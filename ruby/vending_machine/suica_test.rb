@@ -17,7 +17,7 @@ class SuicaTest < Minitest::Test
     assert_equal 600, @suica.balance
   end
 
-  def test_charge_less_than_100_raise
+  def test_charge_fail_less_than100
     e = assert_raises(RuntimeError) do
       @suica.charge(99)
     end
