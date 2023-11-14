@@ -10,7 +10,7 @@ DLINK_LIST = [
 ].freeze
 
 class Vendor
-  attr_reader :sales
+  attr_reader :sales, :stock
 
   def initialize
     @sales = 0
@@ -20,10 +20,6 @@ class Vendor
         @stock << Juice.new(juice[:name], juice[:price])
       end
     end
-  end
-
-  def stock
-    @stock.size
   end
 
   def can_buy?(suica, name)

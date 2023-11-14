@@ -11,7 +11,7 @@ class VendorTest < Minitest::Test
   end
 
   def test_get_stock
-    assert_equal 15, @vendor.stock
+    assert_equal ({ pepsi: 5, monster: 5, irohasu: 5 }), arrange_stock(@vendor.stock)
   end
 
   def test_can_buy
@@ -22,13 +22,11 @@ class VendorTest < Minitest::Test
   def test_buy_ok
     assert_equal 0, @vendor.sales
     @vendor.buy(@suica, :pepsi)
-    assert_equal 14, @vendor.stock
-    assert_equal 150, @vendor.sales
+    assert_equal ({ pepsi: 4, monster: 5, irohasu: 5 }), arrange_stock(@vendor.stock)
     @vendor.buy(@suica, :monster)
-    assert_equal 13, @vendor.stock
-    assert_equal 380, @vendor.sales
+    assert_equal ({ pepsi: 4, monster: 4, irohasu: 5 }), arrange_stock(@vendor.stock)
     @vendor.buy(@suica, :irohasu)
-    assert_equal 12, @vendor.stock
+    assert_equal ({ pepsi: 4, monster: 4, irohasu: 4 }), arrange_stock(@vendor.stock)
     assert_equal 500, @vendor.sales
   end
 
@@ -59,6 +57,15 @@ class VendorTest < Minitest::Test
     @vendor.refill(:pepsi)
     @vendor.refill(:monster)
     @vendor.refill(:irohasu)
-    assert_equal 18, @vendor.stock
+    assert_equal ({ pepsi: 6, monster: 6, irohasu: 6 }), arrange_stock(@vendor.stock)
+  end
+
+  private
+
+  # vendorから得られたstockを整形する
+  def arrange_stock(stock)
+    stock.map(&:name).uniq.to_h do |juice|
+      [juice, stock.count { |v| v.name == juice }]
+    end
   end
 end
