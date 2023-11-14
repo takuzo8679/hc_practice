@@ -4,9 +4,9 @@ require_relative 'juice'
 require_relative 'suica'
 
 DLINK_LIST = [
-  { name: 'pepsi', price: 150, num: 5 },
-  { name: 'monster', price: 230, num: 5 },
-  { name: 'irohasu', price: 120, num: 5 }
+  { name: :pepsi, price: 150, num: 5 },
+  { name: :monster, price: 230, num: 5 },
+  { name: :irohasu, price: 120, num: 5 }
 ].freeze
 
 class Vendor
