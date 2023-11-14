@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 class Suica
+  attr_reader :balance
+
   def initialize
     # 残高
     @balance = 500
-  end
-
-  def balance
-    @balance
   end
 
   def charge(deposit)
