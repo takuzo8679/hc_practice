@@ -20,12 +20,16 @@ class VendorTest < Minitest::Test
   end
 
   def test_buy_ok
+    assert_equal 0, @vendor.sales
     @vendor.buy(@suica, 'pepsi')
     assert_equal 14, @vendor.stock
+    assert_equal 150, @vendor.sales
     @vendor.buy(@suica, 'monster')
     assert_equal 13, @vendor.stock
+    assert_equal 380, @vendor.sales
     @vendor.buy(@suica, 'irohasu')
     assert_equal 12, @vendor.stock
+    assert_equal 500, @vendor.sales
   end
 
   def test_buy_ng_deposit_short

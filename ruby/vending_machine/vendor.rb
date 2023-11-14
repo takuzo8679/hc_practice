@@ -24,6 +24,10 @@ class Vendor
     @stock.size
   end
 
+  def sales
+    @sales
+  end
+
   def can_buy?(suica, name)
     return false unless available_juice.include?(name)
     return false if suica.balance < juice_info(name)[:price]
