@@ -19,5 +19,4 @@ class Suica
   def withdrawal(money)
     @balance -= money
   end
-
 end

@@ -23,10 +23,9 @@ class SuicaTest < Minitest::Test
     end
     assert_equal '入金は100円以上からです', e.message
   end
-  
+
   def test_withdrawal
     @suica.withdrawal(100)
     assert_equal 400, @suica.balance
   end
-
 end
