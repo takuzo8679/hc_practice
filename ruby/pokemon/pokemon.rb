@@ -16,6 +16,6 @@ class Pokemon
   end
 
   def attack
-    raise 'this method must be implements'
+    raise NotImplementedError, "You must implement #{self.class}##{__method__}"
   end
 end
