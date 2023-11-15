@@ -1,0 +1,7 @@
+# 除外設定時に必要
+AllCops:
+  NewCops: enable
+
+#クラス宣言の上のコメントはコードが見にくくなるので除外
+Style/Documentation:
+  Enabled: false
