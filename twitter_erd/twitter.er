@@ -1,0 +1,81 @@
+title {label: "Twitter ER diagram", size: "20"}
+
+[users]
+  *id {label: "bigint, auto_increment, not null"}
+  email {label: "varchar(255), uniq, not null"}
+  password  {label: "varchar(255), not null"}
+  user_name {label: "varchar(255), uniq, not null"}
+  display_name {label: "varchar(255), not null"}
+  telephone {label: "varchar(255) uniq"}
+  self_introduction {label: "text"}
+  location {label: "varchar(255)"}
+  web_site {label: "varchar(8190)"}
+  birth {label: "date"}
+  profile_image_uri {label: "varchar(8190))"}
+  avatar_image_uri {label: "varchar(8190)"}
+  like_notification {label: "boolean, default true, not null"}
+  follow_notification {label: "boolean, default true, not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+[followers]
+  *id {label: "bigint, auto_increment, not null"}
+  +following_id {label: "bigint, FK(users), not null"}
+  +followers_id {label: "bigint, FK(users), not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+[tweets]
+  *id {label: "bigint, auto_increment, not null"}
+  +user_id {label: "bigint, FK(users), not null"}
+  contents {label: "varchar(255), not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+[tweet_images]
+  *id {label: "bigint, auto_increment, not null"}
+  +tweet_id {label: "bigint, FK(tweets) not null"}
+  uri {label: "varchar(8190), not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+[likes]
+  *id {label: "bigint, auto_increment, not null"}
+  +tweet_id {label: "bigint, FK(tweets), not null"}
+  +user_id {label: "bigint, FK(users), not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+[retweets]
+  *id {label: "bigint, auto_increment, not null"}
+  +tweet_id {label: "bigint, FK(tweets), not null"}
+  +origin_tweet_id {label: "bigint, FK(tweets), not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+[bookmarks]
+  *id {label: "bigint, auto_increment, not null"}
+  +tweet_id {label: "bigint, FK(tweets), not null"}
+  +user_id {label: "bigint, FK(users), not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+[direct_messages]
+  *id {label: "bigint, auto_increment, not null"}
+  +sender_id {label: "bigint, FK(users), not null"}
+  +recipient_id {label: "bigint, FK(users), not null"}
+  contents {label: "text, not null"}
+  created_at { label: "datetime, not null"}
+  updated_at { label: "datetime, not null"}
+
+users 1--* followers
+users 1--* likes
+users 1--* tweets
+users 1--* retweets
+users 1--* bookmarks
+users 1--* direct_messages
+
+tweets 1--* tweet_images
+tweets 1--* likes
+tweets 1--* retweets
+tweets 1--* bookmarks
