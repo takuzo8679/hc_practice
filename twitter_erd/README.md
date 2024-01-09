@@ -1,9 +1,11 @@
 # Twitterのデータ構造をモデル化したものです
 
 ## 設計ポイント
-- idはuuidを扱う
-  - 分散を考慮。順序はcreated_atから取得
-  - Postgresではuuid型を選択できるがMySQLでは選択できないためchar(36)とする
+- ~~idはuuidを扱う~~
+  - ~~分散を考慮。順序はcreated_atから取~~得
+  - ~~Postgresではuuid型を選択できるがMySQLでは選択できないためchar(36)とする~~
+- id
+  - 設計容易性からシーケンシャルな値とする
 - 文字列
   - 基本的にvarchar(255)とする
   - uriはApacheが受け取れる制限の(8190)とする
