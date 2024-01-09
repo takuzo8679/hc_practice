@@ -28,7 +28,7 @@ title {label: "Twitter ER diagram", size: "20"}
 [tweets]
   *id {label: "char(36), not null"}
   +user_id {label: "char(36), FK(users), not null"}
-  message {label: "varchar(255), not null"}
+  contents {label: "varchar(255), not null"}
   created_at { label: "datetime, not null"}
   updated_at { label: "datetime, not null"}
 
@@ -64,7 +64,7 @@ title {label: "Twitter ER diagram", size: "20"}
   *id {label: "char(36), not null"}
   +sender_id {label: "char(36), FK(users), not null"}
   +recipient_id {label: "char(36), FK(users), not null"}
-  message {label: "text, not null"}
+  contents {label: "text, not null"}
   created_at { label: "datetime, not null"}
   updated_at { label: "datetime, not null"}
 
